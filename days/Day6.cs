@@ -18,6 +18,7 @@ namespace Days {
         }
 
         public static void Main() {
+                Console.WriteLine("Day 6 results:");
                 Console.WriteLine($"Part one: {findMarker(4)}");
                 Console.WriteLine($"Part two: {findMarker(14)}");   
         }
