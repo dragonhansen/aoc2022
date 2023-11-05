@@ -19,7 +19,7 @@ namespace Days {
 
         public static void Main() {
                 Console.WriteLine($"Part one: {findMarker(4)}");
-                Console.WriteLine($"Part one: {findMarker(14)}");   
+                Console.WriteLine($"Part two: {findMarker(14)}");   
         }
     }
 }
