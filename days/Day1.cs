@@ -2,9 +2,9 @@ namespace Days
 {
     static class Day1
     {
-        static string[] lines = File.ReadAllLines("inputs/input_1.txt");
+        private static string[] lines = File.ReadAllLines("inputs/input_1.txt");
 
-        static void day1()
+        private static void day1()
         {
             int max = 0;
             int sum = 0;

@@ -2,14 +2,14 @@ namespace Days
 {
     static class Day5
     {
-        static string[] lines = File.ReadAllLines("inputs/input_5.txt");
+        private static string[] lines = File.ReadAllLines("inputs/input_5.txt");
 
-        static int emptyLineIndex = Array.FindIndex(lines, string.IsNullOrEmpty);
-        static string[] stackLines = lines.Take(emptyLineIndex - 1).ToArray();
-        static string[] controlLines = lines.Skip(emptyLineIndex + 1).ToArray();
-        static List<Stack<char>> stacks = new List<Stack<char>>();
+        private static int emptyLineIndex = Array.FindIndex(lines, string.IsNullOrEmpty);
+        private static string[] stackLines = lines.Take(emptyLineIndex - 1).ToArray();
+        private static string[] controlLines = lines.Skip(emptyLineIndex + 1).ToArray();
+        private static List<Stack<char>> stacks = new List<Stack<char>>();
 
-        static void readToStack(List<Stack<char>> stacks)
+        private static void readToStack(List<Stack<char>> stacks)
         {
             for (int i = 0; i < 9; i++)
             {
@@ -30,7 +30,7 @@ namespace Days
             }
         }
 
-        static void partOne()
+        private static void partOne()
         {
             readToStack(stacks);
             foreach (string line in controlLines)
@@ -53,7 +53,7 @@ namespace Days
             Console.WriteLine();
         }
 
-        static void partTwo()
+        private static void partTwo()
         {
             readToStack(stacks);
             foreach (string line in controlLines)

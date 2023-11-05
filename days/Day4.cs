@@ -4,9 +4,9 @@ namespace Days
     static class Day4
     {
 
-        static string[] lines = File.ReadAllLines("inputs/input_4.txt");
+        private static string[] lines = File.ReadAllLines("inputs/input_4.txt");
 
-        static int countOverlap(string line, bool partial)
+        private static int countOverlap(string line, bool partial)
         {
             string[] substrings = line.Split(',');
             string[] first = substrings[0].Split('-');
