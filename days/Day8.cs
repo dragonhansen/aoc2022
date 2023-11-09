@@ -14,26 +14,28 @@ namespace Days
 
         private static void computeVisibleTreeCount()
         {
-            double count = Math.Pow(lines.Length, 2) - Math.Pow(lines.Length-2, 2);
+            double count = Math.Pow(lines.Length, 2) - Math.Pow(lines.Length - 2, 2);
             int maxScenicScore = 0;
             for (int i = 1; i < lines.Length - 1; i++)
             {
                 for (int j = 1; j < lines[i].Length - 1; j++)
                 {
-                    int[] scores = {0,0,0,0};
+                    int[] scores = { 0, 0, 0, 0 };
                     bool visibleFromLeft = true;
                     bool visibleFromRight = true;
                     bool visibleFromTop = true;
                     bool visibleFromBot = true;
-                    for (int k = j-1; k >= 0; k--)
+                    for (int k = j - 1; k >= 0; k--)
                     {
                         if (lines[i][k] >= lines[i][j])
                         {
                             visibleFromLeft = false;
-                            scores[0] ++;
+                            scores[0]++;
                             break;
-                        } else {
-                            scores[0] ++;
+                        }
+                        else
+                        {
+                            scores[0]++;
                         }
                     }
                     for (int k = j + 1; k < lines[i].Length; k++)
@@ -41,21 +43,25 @@ namespace Days
                         if (lines[i][k] >= lines[i][j])
                         {
                             visibleFromRight = false;
-                            scores[1] ++;
+                            scores[1]++;
                             break;
-                        } else {
-                            scores[1] ++;
+                        }
+                        else
+                        {
+                            scores[1]++;
                         }
                     }
-                    for (int k = i-1; k >= 0; k--)
+                    for (int k = i - 1; k >= 0; k--)
                     {
                         if (lines[k][j] >= lines[i][j])
                         {
                             visibleFromTop = false;
-                            scores[2] ++;
+                            scores[2]++;
                             break;
-                        } else {
-                            scores[2] ++;
+                        }
+                        else
+                        {
+                            scores[2]++;
                         }
                     }
                     for (int k = i + 1; k < lines[i].Length; k++)
@@ -63,22 +69,24 @@ namespace Days
                         if (lines[k][j] >= lines[i][j])
                         {
                             visibleFromBot = false;
-                            scores[3] ++;
-                           break;
-                        } else {
-                            scores[3] ++;
+                            scores[3]++;
+                            break;
+                        }
+                        else
+                        {
+                            scores[3]++;
                         }
                     }
                     if (visibleFromBot | visibleFromTop | visibleFromLeft | visibleFromRight)
                     {
                         count++;
                     }
-                    int scenicScore = scores[0]*scores[1]*scores[2]*scores[3];
-                    if(scenicScore > maxScenicScore) {
+                    int scenicScore = scores[0] * scores[1] * scores[2] * scores[3];
+                    if (scenicScore > maxScenicScore)
+                    {
                         maxScenicScore = scenicScore;
-                        Console.WriteLine($"Max index: {i}, {j}");
                     }
-                    
+
                 }
             }
             Console.WriteLine("Day eight results:");
