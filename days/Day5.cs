@@ -82,7 +82,7 @@ namespace Days
             Console.WriteLine();
         }
 
-        public static void Main()
+        public static void Solve()
         {
             Console.WriteLine("Day 5 results:");
             partOne();

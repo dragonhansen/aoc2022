@@ -6,18 +6,17 @@ namespace Days
     static class Day9
     {
         private static string[] lines = File.ReadAllLines("inputs/input_9.txt");
-
-        private static (int, int) headPosition = (0,0);
-        private static (int, int) tailPosition = (0,0);
         private static List<(int, int)> tailPositionList = new List<(int, int)>(){(0,0)};
-
+        private static int tailLength = 10;
+        private static (int, int)[] tail = new (int,int)[tailLength];
         private static void findSumOfTailPositions() {
             foreach(string line in lines) {
                 string[] instruction = line.Split(' ');
                 string direction = instruction[0];
                 int steps = int.Parse(instruction[1]);
                 for(int i = 0; i < steps; i++) {
-                    moveHead(direction);
+                    moveHead(direction, tailLength);
+                    logTailPosition();
                 }
             }
             int sumOfTailPositions = tailPositionList.Count();
@@ -25,46 +24,48 @@ namespace Days
         }
 
 
-        private static void moveHead(string direction) {
+        private static void moveHead(string direction, int tailLength) {
             switch(direction) {
                 case "U": 
-                    headPosition.Item1 += 1;
+                    tail[0].Item1 += 1;
                     break;
                 case "D": 
-                    headPosition.Item1 -= 1;
+                    tail[0].Item1 -= 1;
                     break;
                 case "L": 
-                    headPosition.Item2 -= 1;
+                    tail[0].Item2 -= 1;
                     break;
                 case "R": 
-                    headPosition.Item2 += 1;
+                    tail[0].Item2 += 1;
                     break;
             }
-            int verticalDifference = headPosition.Item1 - tailPosition.Item1;
-            int horizontalDifference = headPosition.Item2 - tailPosition.Item2;
-            if((Math.Abs(verticalDifference) == 2 & Math.Abs(horizontalDifference) == 1)|(Math.Abs(verticalDifference) == 1 & Math.Abs(horizontalDifference) == 2)) {
-                if(direction.Equals("U") | direction.Equals("D")) {
-                    tailPosition.Item2 = headPosition.Item2;
-                } else {
-                    tailPosition.Item1 = headPosition.Item1;
+            for(int i = 1; i<tailLength; i++) {
+
+                int verticalDifference = tail[i-1].Item1-tail[i].Item1; 
+                int horizontalDifference = tail[i-1].Item2-tail[i].Item2; 
+                if((Math.Abs(verticalDifference) == 2 & Math.Abs(horizontalDifference) == 1)|(Math.Abs(verticalDifference) == 1 & Math.Abs(horizontalDifference) == 2)) {
+                    if(direction.Equals("U") | direction.Equals("D")) {
+                        tail[i].Item2 = tail[i-1].Item2;
+                    } else {
+                        tail[i].Item1 = tail[i-1].Item1;
+                    }
+                }
+                if(Math.Abs(verticalDifference) > 1) {
+                    tail[i].Item1 +=  Math.Sign(verticalDifference);
+                }
+                if(Math.Abs(horizontalDifference) > 1) {
+                    tail[i].Item2 +=  Math.Sign(horizontalDifference);
                 }
             }
-            if(Math.Abs(verticalDifference) > 1) {
-                tailPosition.Item1 +=  Math.Sign(verticalDifference);
-            }
-            if(Math.Abs(horizontalDifference) > 1) {
-                tailPosition.Item2 +=  Math.Sign(horizontalDifference);
-            }
-            logTailPosition();
         }
 
         private static void logTailPosition() {
-            if(!tailPositionList.Contains(tailPosition)) {
-                tailPositionList.Add(tailPosition);
+            if(!tailPositionList.Contains(tail.Last())) {
+                tailPositionList.Add(tail.Last());
             }
         }
 
-        public static void Main() {
+        public static void Solve() {
             findSumOfTailPositions();
         }
 

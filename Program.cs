@@ -1,13 +1,13 @@
 ﻿using Days;
 /*
-Day1.Main();
-Day2.Main();
-Day3.Main();
-Day4.Main();
-Day5.Main();
-Day6.Main();
-Day7.Main();
-Day8.Main();
-Day10.Main();
+Day1.Solve();
+Day2.Solve();
+Day3.Solve();
+Day4.Solve();
+Day5.Solve();
+Day6.Solve();
+Day7.Solve();
+Day8.Solve();
+Day10.Solve();
 */
-Day9.Main();
+Day9.Solve();

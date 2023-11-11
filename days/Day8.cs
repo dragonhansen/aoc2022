@@ -7,7 +7,7 @@ namespace Days
         private static string[] lines = File.ReadAllLines("inputs/input_8.txt");
 
 
-        public static void Main()
+        public static void Solve()
         {
             computeVisibleTreeCount();
         }

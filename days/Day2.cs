@@ -22,7 +22,7 @@ namespace Days
             Console.WriteLine($"Part two: {partTwoSum}");
         }
 
-        public static void Main() {
+        public static void Solve() {
             Console.WriteLine("Day 2 results:");
             day2();
         }

@@ -17,7 +17,7 @@ namespace Days {
             return -1;
         }
 
-        public static void Main() {
+        public static void Solve() {
                 Console.WriteLine("Day 6 results:");
                 Console.WriteLine($"Part one: {findMarker(4)}");
                 Console.WriteLine($"Part two: {findMarker(14)}");   

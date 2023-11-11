@@ -68,7 +68,7 @@ namespace Days
             Console.WriteLine($"Part two: {sum}");
         }
 
-        public static void Main()
+        public static void Solve()
         {
             Console.WriteLine("Day 3 results:");
             partOne();

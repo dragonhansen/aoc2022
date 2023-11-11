@@ -76,7 +76,7 @@ namespace Days
 
         }
 
-        public static void Main()
+        public static void Solve()
         {
 
             Console.WriteLine("Day 7 results:");

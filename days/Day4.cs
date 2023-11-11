@@ -23,7 +23,7 @@ namespace Days
             return 1;
         }
 
-        public static void Main()
+        public static void Solve()
         {
             int full = 0;
             int partial = 0;

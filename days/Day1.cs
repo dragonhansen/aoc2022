@@ -31,7 +31,7 @@ namespace Days
             Console.WriteLine($"Part two: {top3.Sum()}");
         }
 
-        public static void Main()
+        public static void Solve()
         {
             day1();
         }
